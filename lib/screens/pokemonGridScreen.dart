@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/providers/PokemonRequest.dart';
-import 'package:pokedex/widgets/pokeCard.dart';
 import 'package:pokedex/widgets/pokeGrid.dart';
 import 'package:provider/provider.dart';
 
@@ -20,8 +19,9 @@ class _PokemonGridScreenState extends State<PokemonGridScreen> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          title: Text("Pokemon"),
+          title: Text("POKEMON"),
         ),
+        backgroundColor: Color(0xfffcf0f7),
         body: PokemonGridView(),
     );
   }

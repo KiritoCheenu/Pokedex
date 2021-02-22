@@ -17,7 +17,7 @@ class PokemonRequest extends ChangeNotifier {
   Future<void> fetchDetails() async {
     List<Pokemon> tempPoke = [];
     final url =
-        "http://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
+        "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
     try {
       final response = await http.get(url);
       final data = json.decode(response.body);

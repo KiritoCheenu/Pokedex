@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/GitHub/pokedex/lib/model/pokemon.dart';
 import 'package:pokedex/screens/pokemonGridScreen.dart';
 
 import 'package:provider/provider.dart';
@@ -17,16 +16,15 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider.value(
             value: PokemonRequest(),
           ),
-
         ],
         child: MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Pokemon',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.pink,
+            fontFamily: 'Amazon',
+            // textTheme: TextStyle,
           ),
-
           home: PokemonGridScreen(),
         ));
   }
 }
-

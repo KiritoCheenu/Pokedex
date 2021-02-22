@@ -3,6 +3,7 @@ import '../model/pokemon.dart';
 
 class PokeCard extends StatelessWidget {
   final Pokemon pokemon;
+
   PokeCard(this.pokemon);
 
   @override
@@ -15,24 +16,32 @@ class PokeCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(
-              color: Colors.blueGrey,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0x995F0A87), Color(0x4dA4508B)])),
               child: Center(
                 child: Container(
+                  padding: EdgeInsets.only(bottom: 30),
                   child: Image.network(
                     pokemon.img,
                     fit: BoxFit.fill,
                   ),
-                  height: 100,
+                  height: 150,
                 ),
               ),
             ),
           ),
         ),
-        header: Container(
-          height: 25,
+        footer: Container(
+          height: 40,
           child: GridTileBar(
-            backgroundColor: Colors.black12,
-            title: Text(pokemon.name),
+            title: Text(
+              pokemon.name,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24,color: Colors.black,fontFamily: 'Hoedown',),
+            ),
           ),
         ),
       ),

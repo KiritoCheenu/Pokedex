@@ -14,9 +14,9 @@ class PokemonGridView extends StatelessWidget {
       itemBuilder: (ctx, i) => PokeCard(pokemonList[i]),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.2,
-        crossAxisSpacing: 30,
-        mainAxisSpacing: 30,
+        childAspectRatio: 1,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
       ),
     );
   }
