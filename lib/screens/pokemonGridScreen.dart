@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/providers/PokemonRequest.dart';
-import 'package:pokedex/providers/pokemon.dart';
 import 'package:pokedex/widgets/pokeCard.dart';
+import 'package:pokedex/widgets/pokeGrid.dart';
 import 'package:provider/provider.dart';
 
 class PokemonGridScreen extends StatefulWidget {
@@ -12,21 +12,17 @@ class PokemonGridScreen extends StatefulWidget {
 class _PokemonGridScreenState extends State<PokemonGridScreen> {
   @override
   void didChangeDependencies() {
-    //
     Provider.of<PokemonRequest>(context).fetchDetails();
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Pokemon>(
-      builder: (ctx, poke, _) => Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text("Pokemon"),
         ),
-        
-        body: PokeCard(),
-      ),
+        body: PokemonGridView(),
     );
   }
 }

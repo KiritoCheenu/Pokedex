@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/providers/pokemon.dart';
+import 'file:///D:/GitHub/pokedex/lib/model/pokemon.dart';
 import 'package:pokedex/screens/pokemonGridScreen.dart';
 
 import 'package:provider/provider.dart';
@@ -19,15 +19,14 @@ class MyApp extends StatelessWidget {
           ),
 
         ],
-        child: Consumer<Pokemon>(
-          builder:(ctx,poke,_)=> MaterialApp(
+        child: MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
 
           home: PokemonGridScreen(),
-        )));
+        ));
   }
 }
 

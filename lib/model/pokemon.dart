@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Pokemon extends ChangeNotifier{
+class Pokemon {
   final int id;
   final String name;
   final String num;

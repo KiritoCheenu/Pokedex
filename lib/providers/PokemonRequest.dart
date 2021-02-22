@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'pokemon.dart';
+import '../model/pokemon.dart';
 
 class PokemonRequest extends ChangeNotifier {
   List<Pokemon> _pokemonDetails = [];
@@ -23,7 +23,7 @@ class PokemonRequest extends ChangeNotifier {
       final data = json.decode(response.body);
       data['pokemon'].forEach((pokemon) {
         tempPoke.add(Pokemon(
-            pokemon["id"], pokemon['num'], pokemon['name'], pokemon['img']));
+            pokemon["id"], pokemon['name'], pokemon['num'], pokemon['img']));
       });
     } on Exception catch (e) {
       print(e.toString());
