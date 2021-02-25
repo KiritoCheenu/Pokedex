@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/screens/pokemonDetailScreen.dart';
 import 'package:pokedex/screens/pokemonGridScreen.dart';
 
 import 'package:provider/provider.dart';
@@ -12,19 +13,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider.value(
-            value: PokemonRequest(),
-          ),
-        ],
-        child: MaterialApp(
-          title: 'Pokemon',
-          theme: ThemeData(
-            primarySwatch: Colors.pink,
-            fontFamily: 'Amazon',
-            // textTheme: TextStyle,
-          ),
-          home: PokemonGridScreen(),
-        ));
+      providers: [
+        ChangeNotifierProvider.value(
+          value: PokemonRequest(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Pokemon',
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+          fontFamily: 'Amazon',
+          // textTheme: TextStyle,
+        ),
+        home: PokemonGridScreen(),
+        routes: {
+          PokemonDetailScreen.routeName:(ctx)=>PokemonDetailScreen()
+        },
+      ),
+    );
   }
 }

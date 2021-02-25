@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:pokedex/screens/pokemonDetailScreen.dart';
 import '../model/pokemon.dart';
 
 class PokeCard extends StatelessWidget {
@@ -13,6 +15,9 @@ class PokeCard extends StatelessWidget {
       width: 200,
       child: GridTile(
         child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed(PokemonDetailScreen.routeName);
+          },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(
@@ -40,7 +45,11 @@ class PokeCard extends StatelessWidget {
             title: Text(
               pokemon.name,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24,color: Colors.black,fontFamily: 'Hoedown',),
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.black,
+                fontFamily: 'Amazon',
+              ),
             ),
           ),
         ),

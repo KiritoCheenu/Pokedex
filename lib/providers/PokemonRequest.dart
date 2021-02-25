@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
@@ -22,8 +23,22 @@ class PokemonRequest extends ChangeNotifier {
       final response = await http.get(url);
       final data = json.decode(response.body);
       data['pokemon'].forEach((pokemon) {
-        tempPoke.add(Pokemon(
-            pokemon["id"], pokemon['name'], pokemon['num'], pokemon['img']));
+        List<String> type = [];
+        List<String> weaknesses = [];
+        // List<Map<String, String>> next_evolution;
+        pokemon['type'].forEach((typePokemon) => type.add(typePokemon));
+        pokemon['weaknesses']
+            .forEach((weaknessesPokemon) => weaknesses.add(weaknessesPokemon));
+        
+        // pokemon['next_evolution']!=null?.forEach((key,value) {
+          // next_evolution.putIfAbsent(key, key['num']);
+          // next_evolution.putIfAbsent(key, key['num']);
+          // print(key);
+        // });
+        tempPoke.add(
+          Pokemon(pokemon["id"], pokemon['name'], pokemon['num'],
+              pokemon['img'], type, weaknesses),
+        );
       });
     } on Exception catch (e) {
       print(e.toString());

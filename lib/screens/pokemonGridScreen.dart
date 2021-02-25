@@ -9,20 +9,36 @@ class PokemonGridScreen extends StatefulWidget {
 }
 
 class _PokemonGridScreenState extends State<PokemonGridScreen> {
+  var _isInit = true;
+  var _isLoading = false;
+  
   @override
+  void initState() {
+    super.initState();
+  }
+
   void didChangeDependencies() {
-    Provider.of<PokemonRequest>(context).fetchDetails();
-    super.didChangeDependencies();
+    if (_isInit) {
+      setState(() {
+        _isLoading = true;
+      });
+      Provider.of<PokemonRequest>(context).fetchDetails().then((_) {
+        setState(() {
+          _isLoading = false;
+        });
+      });
+    }
+    _isInit = false;super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: Text("POKEMON"),
-        ),
-        backgroundColor: Color(0xfffcf0f7),
-        body: PokemonGridView(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("POKEMON"),
+      ),
+      backgroundColor: Color(0xfffcf0f7),
+      body: _isLoading?Center(child:CircularProgressIndicator()): PokemonGridView(),
     );
   }
 }
