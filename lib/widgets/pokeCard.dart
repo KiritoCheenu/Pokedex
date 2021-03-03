@@ -16,7 +16,7 @@ class PokeCard extends StatelessWidget {
       child: GridTile(
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed(PokemonDetailScreen.routeName);
+            Navigator.of(context).pushNamed(PokemonDetailScreen.routeName,arguments: pokemon.id);
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
