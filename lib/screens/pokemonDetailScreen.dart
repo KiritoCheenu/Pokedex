@@ -14,9 +14,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
   Widget build(BuildContext context) {
     final pokeID = ModalRoute.of(context).settings.arguments; // is the id!
     final pokeDetails = Provider.of<PokemonRequest>(
-      context,
-      listen: false,
-    ).findById(pokeID);
+      context,listen: false,).findById(pokeID);
     print(pokeDetails.name);
     return Scaffold(
       appBar: AppBar(title: Text(pokeDetails.name)),
